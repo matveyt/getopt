@@ -4,10 +4,23 @@ Portable, complete and bug-free impementation of `getopt(3)`, `getopt_long(3)`,
 `getopt_long_only(3)` and `getsubopt(3)`. Written from scratch and 100% compatible with
 GNU (glibc) implementation.
 
+### Why
+
+There are many other implementations floating around. But they usually fall into three
+categories:
+
+1. Big libc or POSIX library hard to adapt into your code.
+2. Incomplete implementation with only subset of features and some obscure
+   incompatibilities.
+3. Both of above.
+
+So my aim is to provide feature-complete, bug-free and easy to use `getopt(3)` and
+`getopt_long(3)`.
+
 ### Features
 
-- all POSIX features and GNU extras, including argument permutation, `optreset`,
-  `optind=0`, `:`, `-`, `+`, `POSIXLY_CORRECT`, `-Woption`, etc.
+- all POSIX features and extras, including argument permutation, `optreset`, `optind=0`,
+  `:`, `-`, `+`, `W;`, `POSIXLY_CORRECT`, etc.
 - passes all compatibility tests I know of
 - compact C99 code compiles with different compilers/OS (Windows included)
 - Minimal run-time dependency, only `strchr`, `strlen`, `strncmp`, `fprintf` and `getenv`
@@ -16,7 +29,7 @@ GNU (glibc) implementation.
   library
 - few optional compile-time adjustments to ease integration with your code
 
-### Using getopt
+### Using
 
 - Simply link with `getopt.c`
 - If specific prefix needs to be added (e.g., `foobar_getopt()`) then do `#define
@@ -36,7 +49,3 @@ This is fully optional. The following symbols can be defined while compiling `ge
       arguments (leading `-` in option string still works)
 - `GETOPT_PRINT`: set to varargs function to output error messages; default is
   `fprintf(stderr, __VA_ARGS__)`
-
-### Bugs
-
-If you think you found a bug or incompatibility then, please, raise an issue.
