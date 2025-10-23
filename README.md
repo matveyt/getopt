@@ -23,8 +23,8 @@ So my aim is to provide feature-complete, bug-free and easy to use `getopt(3)` a
   `:`, `-`, `+`, `W;`, `POSIXLY_CORRECT`, etc.
 - passes all compatibility tests I know of
 - compact C99 code compiles with different compilers/OS (Windows included)
-- Minimal run-time dependency, only `strchr`, `strlen`, `strncmp`, `fprintf` and `getenv`
-  required (the latter two can be eliminated by compile-time definitions)
+- No run-time dependencies, only `fprintf` and `getenv` required and both can be
+  eliminated by compile-time definitions
 - usable either as drop-in replacement of system implementation or "prefixed" user
   library
 - few optional compile-time adjustments to ease integration with your code
